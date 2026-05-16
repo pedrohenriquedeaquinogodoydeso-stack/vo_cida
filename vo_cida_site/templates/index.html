@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vó Cida Quitutes Artesanais</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Vó Cida</h1>
+        <p>Quitutes Artesanais</p>
+    </header>
+
+    <section class="banner">
+        <img src="{{ url_for('static', filename='img/inauguracao.jpeg') }}" alt="Inauguração">
+        <img src="{{ url_for('static', filename='img/cardapio.jpeg') }}" alt="Cardápio">
+    </section>
+
+    <main>
+
+        <section class="card">
+            <h2>🥧 Quiches & Empadas</h2>
+
+            <ul>
+                {% for item in produtos.quiches %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+
+        <section class="card">
+            <h2>🍞 Pães Caseiros</h2>
+
+            <ul>
+                {% for item in produtos.paes %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+
+        <section class="card">
+            <h2>🍰 Bolos & Doces</h2>
+
+            <ul>
+                {% for item in produtos.doces %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+
+        <section class="card">
+            <h2>🥧 Cucas Recheadas</h2>
+
+            <ul>
+                {% for item in produtos.cucas %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+    </main>
+
+<!-- FOOTER -->
+<footer>
+
+    <h2>📞 Encomendas</h2>
+
+    <!-- Número copiável -->
+    <div class="telefone-box">
+
+        <span id="telefone">
+            (51) 99940-6719
+        </span>
+
+        <button onclick="copiarNumero()">
+            Copiar
+        </button>
+
+    </div>
+
+    <!-- Exemplo de watts -->
+    <a
+        class="whatsapp-btn"
+        href="https://wa.me/5551999406719"
+        target="_blank"
+    >
+        Falar no WhatsApp
+    </a>
+
+</footer>
+
+<script>
+    function copiarNumero(){
+
+        const numero =
+            document.getElementById("telefone").innerText;
+
+        navigator.clipboard.writeText(numero);
+
+        alert("Número copiado!");
+    }
+</script>
+
+</body>
+</html>
